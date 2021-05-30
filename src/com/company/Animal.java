@@ -1,15 +1,38 @@
 package com.company;
 
 public class Animal {
-    final public String species;
-    private Double weight;
-    String name;
+    final String species = "";
+    private Double weight = 0.0;
 
-    void printName(){
-        System.out.println("my name is: " + this.name);
+    public String getSpecies() {
+        return species;
     }
 
-    void printNameAndOwner(String owner){
-        System.out.println(owner + " has " + this.name);
+    public Double getWeight() {
+        return weight;
     }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    public Animal(String species) {
+        if (species == "jamnik") {this.weight = 15.0;}
+        else if (species == "owczarek") {this.weight = 20.0;}
+
+
+    }
+
+    public void feed() {
+        this.weight++;
+    }
+
+    public void takeForAWalk() {
+        if (this.weight > 0){
+        this.weight--;
+        } else {
+            System.out.println("teraz już za późno dzbanie");
+        }
+    }
+
 }

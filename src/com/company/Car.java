@@ -6,10 +6,20 @@ public class Car {
     public double millage;
     public String color;
     public double engineVolume;
+    public double value;
 
     public Car(String producer, String model){
         this.producer = producer;
         this.model = model;
+    }
+
+    public Car(Car car) {
+        this.producer = car.producer;
+        this.model = car.model;
+        this.millage = car.millage;
+        this.color = car.color;
+        this.engineVolume = car.engineVolume;
+        this.value = car.value;
     }
 
     public Car(String producer, String model, double millage, String color, double engineVolume){
