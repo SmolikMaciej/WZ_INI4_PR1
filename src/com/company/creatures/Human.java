@@ -1,24 +1,62 @@
 package com.company.creatures;
 
+import java.util.ArrayList;
 import java.util.Date;
 import com.company.devices.Phone;
 import com.company.devices.Car;
 
+
 public class Human extends Animal {
-    String firstName;
-    String lastName;
-    Phone phone;
-    Animal pet;
+    public String firstName;
+    public String lastName;
+    public Phone phone;
+    public Animal pet;
     private Double salary = 3200.0;
     private String pesel;
     public Car car;
     public double cash;
+    public int garageSize =2;
+    public ArrayList<Car> Garage;
+    public Human(String spieces) {
+        super(spieces);
+        Garage = new ArrayList<>();
+    }
 
-    public Human(String spiecies) {
-        super(spiecies);
+    public Car getCar(int parkingSpace){
+
+        if(Garage.get(parkingSpace)== null){
+
+
+            System.out.println("No car found");
+        } else {
+            System.out.println(Garage.get(parkingSpace).producer);
+            System.out.println(Garage.get(parkingSpace).model);
+            System.out.println(Garage.get(parkingSpace).yearOfProduction);
+            System.out.println(Garage.get(parkingSpace).color);
+            System.out.println(Garage.get(parkingSpace).millage);
+            System.out.println(Garage.get(parkingSpace).engineVolume);
+            System.out.println(Garage.get(parkingSpace).value);
+        }
+        return this.Garage.get(parkingSpace);
+    }
+
+    public void setCar(Car car, boolean usun){
+
+        if(usun) {
+            for (int i = 0; i < garageSize; i++) {
+                if (car == Garage.get(i)){
+                    Garage.set(i, null);
+                }
+            }
+        }
+        else if(Garage.size() <garageSize){
+            Garage.add(car);
+        }
+        else{
+            System.out.println("Brak miejsca brachu");
         }
 
-
+    }
 
 
     public Double getSalary() {
@@ -61,4 +99,18 @@ public class Human extends Animal {
        }
 
     }
+
+    public void checkGarageValue(){
+        float value = 0;
+        for(int i =0; i < garageSize;i++){
+            value += Garage.get(i).value;
+        }
+        System.out.println("wartość aut w garażu: "+ value);
+    }
+
+    @Override
+    public void feed() {
+
+    }
+
 }
