@@ -1,15 +1,24 @@
-package com.company;
+package com.company.creatures;
 
 import java.util.Date;
+import com.company.devices.Phone;
+import com.company.devices.Car;
 
-public class Human {
+public class Human extends Animal {
     String firstName;
     String lastName;
     Phone phone;
     Animal pet;
-    private Car car;
     private Double salary = 3200.0;
     private String pesel;
+    public Car car;
+    public double cash;
+
+    public Human(String spiecies) {
+        super(spiecies);
+        }
+
+
 
 
     public Double getSalary() {
